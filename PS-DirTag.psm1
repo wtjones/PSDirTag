@@ -89,5 +89,5 @@ function global:prompt {
     }
    
     $global:LASTEXITCODE = $realLASTEXITCODE    
-    return((& $global:prompt_old) + ' * ')
+    return((& $global:prompt_old))
 }
