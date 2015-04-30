@@ -10,10 +10,13 @@ Installation (normal)
 1) Clone or download to `$profile\Modules\PS-DirTag`
 2) Run the following:
 
-		import-module ps-dirtag -force -verbose -ArgumentList $true
+		import-module ps-dirtag -force -verbose
 
 Installation (debug)
 ---------------------
+
+1) Clone or download to `$profile\Modules\PS-DirTag`
+2) Run the following:
 
 		import-module ps-dirtag -force -verbose -ArgumentList $true
 
