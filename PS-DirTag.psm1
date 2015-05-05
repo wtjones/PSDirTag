@@ -12,6 +12,18 @@ function Get-DirTags {
 }
 
 
+function Get-WorkspaceTags {
+    [CmdletBinding()]
+    param ()
+    PROCESS {
+        $tagFile = join-path (split-path $profile -parent) '.dirtags'
+        $tags = (get-content $tagFile -Raw) | ConvertFrom-Json
+        return $tags.workspaceTags
+    }
+}
+
+
+
 function Register-DirTags {
     [CmdletBinding()]
     param ([switch]$debugMode)
@@ -50,6 +62,40 @@ function Register-DirTags {
 }
 
 
+
+function Register-WorkspaceTags {
+    [CmdletBinding()]
+    param ([switch]$debugMode)
+    PROCESS {
+        foreach($wt in Get-WorkspaceTags) {
+            if (test-path ('variable:\' + $dt.name)) {
+                if ($debugMode.IsPresent) {write-host ('setting {0} to {1}' -f $wt.name, $wt.path)}
+                Set-Variable $wt.name -Value $wt.path -Scope 'global'
+            } else {
+                if ($debugMode.IsPresent) {write-host ('creating {0} to {1}' -f $wt.name, $wt.path)}
+                New-Variable $wt.name -Value $wt.path -Scope 'global'
+            }
+
+            foreach($dt in Get-DirTags) {
+                if (test-path (join-path $wt.path $dt.path)) {
+                    $tagName = ('{0}_{1}' -f $wt.name, $dt.name)
+                    $tagPath = (join-path $wt.path $dt.path)
+                    if (test-path ('variable:\' + $tagName)) {
+                        if ($debugMode.IsPresent) {write-host ('setting {0} to {1}' -f $tagName, $tagPath)}
+                        Set-Variable $tagName -Value $tagPath -Scope 'global'
+                     } else {
+                        if ($debugMode.IsPresent) {write-host ('creating {0} to {1}' -f $tagName, $tagPath)}
+                        New-Variable $tagName -Value $tagPath -Scope 'global'
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+
 function Unregister-DirTagsPrompt {    
     [CmdletBinding()]
     param ([switch]$debugMode)
@@ -81,8 +127,10 @@ function global:prompt {
     try {
         if ($debugMode) {
             Register-DirTags -debugMode
+            Register-WorkspaceTags -debugMode
         } else {
             Register-DirTags
+            Register-WorkspaceTags
         }
     } catch [Exception]{
         if ($debugMode) { write-host $_.Message}
@@ -91,3 +139,5 @@ function global:prompt {
     $global:LASTEXITCODE = $realLASTEXITCODE    
     return((& $global:prompt_old))
 }
+
+Export-ModuleMember -function *-*
