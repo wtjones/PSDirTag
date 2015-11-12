@@ -49,7 +49,7 @@ Uninstallation
 Run the following
 
         Unregister-DirtagsPrompt
-        Remove-Module PS-DirTags
+        Remove-Module PS-DirTag
 
 I'm not sure yet how to clean up the prompt when `Remove-Module` is called.
 
