@@ -24,7 +24,7 @@ Installation (debug)
 Configuration
 -------------
 
-Place a json config file named `.dirtags` in your `$profile` folder.
+Place a json config file named `dirtags.json` in your `$profile` folder.
 
 ### Example `.dirtags` file:
 
@@ -58,5 +58,4 @@ TODO
 ----
 
 * Support multiple possible paths per tag.
-* Support workspaces
 * Add overview and examples.
