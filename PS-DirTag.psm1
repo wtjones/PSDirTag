@@ -1,6 +1,9 @@
 param([parameter(Position=0, Mandatory = $false)][boolean]$debugMode = $false)
 
 $moduleRoot = Split-Path -Path $MyInvocation.MyCommand.Path
+$configFilePath = join-path (split-path $profile -parent) 'dirtags.json'
+
+# Dot source functions
 "$moduleRoot\functions\*.ps1" | Resolve-Path | %{. $_.ProviderPath}
 
 

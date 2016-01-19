@@ -3,8 +3,7 @@ function Get-DirTags {
     [CmdletBinding()]
     param ()
     PROCESS {
-        $tagFile = join-path (split-path $profile -parent) 'dirtags.json'
-        $tags = (get-content $tagFile -Raw) | ConvertFrom-Json
+        $tags = (get-content $configFilePath -Raw) | ConvertFrom-Json
         return $tags.dirTags
     }
 }
@@ -14,8 +13,7 @@ function Get-WorkspaceTags {
     [CmdletBinding()]
     param ()
     PROCESS {
-        $tagFile = join-path (split-path $profile -parent) 'dirtags.json'
-        $tags = (get-content $tagFile -Raw) | ConvertFrom-Json
+        $tags = (get-content $configFilePath -Raw) | ConvertFrom-Json
         return $tags.workspaceTags
     }
 }
