@@ -24,7 +24,7 @@ function Register-DirTags {
                 $tagPath = $dt.path
             }
                         
-            if ($debugMode.IsPresent) {write-host ('setting {0} to {1}' -f $dt.name, $tagPath)}
+            if ($debugMode.IsPresent) {write-host ('setting ${0} to {1}' -f $dt.name, $tagPath)}
             New-Variable $dt.name -Value $tagPath -Scope 'global' -Force
             
         }

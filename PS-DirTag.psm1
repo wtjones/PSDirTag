@@ -39,4 +39,5 @@ function global:prompt {
     return((& $global:prompt_old))
 }
 
+# Only functions with a dash are public
 Export-ModuleMember -function *-*

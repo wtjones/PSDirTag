@@ -2,21 +2,16 @@
 function Register-WorkspaceTags {
     [CmdletBinding()]
     param ([switch]$debugMode)
-    PROCESS {
+    PROCESS {        
         foreach($wt in Get-WorkspaceTags) {            
-            if ($debugMode.IsPresent) {write-host ('creating {0} to {1}' -f $wt.name, $wt.path)}
+            if ($debugMode.IsPresent) {write-host ('creating workspace ${0} to {1}' -f $wt.name, $wt.path)}
             New-Variable $wt.name -Value $wt.path -Scope 'global' -Force
-            
-            foreach($dt in Get-DirTags) {
-                if (test-path (join-path $wt.path $dt.path)) {
-                    $tagName = ('{0}_{1}' -f $wt.name, $dt.name)
-                    $tagPath = (join-path $wt.path $dt.path)
-                    if ($debugMode.IsPresent) {write-host ('setting {0} to {1}' -f $tagName, $tagPath)}
-                    New-Variable $tagName -Value $tagPath -Scope 'global' -Force
-                    
-                }
-            }
+        }
 
+        # Add relevant dirtags for each workspace. Example: $workspace1_sometag
+        foreach($wt in GetWorkspaceDirTags) {
+            New-Variable $wt.name -Value $wt.path -Scope 'global' -Force
+            if ($debugMode.IsPresent) {write-host ('creating workspace dirtag ${0} to {1}' -f $wt.name, $wt.path)}
         }
     }
 }
