@@ -3,8 +3,8 @@
 #>
 function GetWorkspaceDirTags() {
     $result = @()
-	foreach($wt in Get-WorkspaceTags) {
-        foreach($dt in Get-DirTags) {
+	foreach($wt in GetWorkspaceTagsConfig) {
+        foreach($dt in GetDirTagsConfig) {
             if (test-path (join-path $wt.path $dt.path)) {
                 $tagName = ('{0}_{1}' -f $wt.name, $dt.name)
                 $tagPath = (join-path $wt.path $dt.path)

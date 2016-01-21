@@ -3,7 +3,7 @@ function Register-WorkspaceTags {
     [CmdletBinding()]
     param ([switch]$debugMode)
     PROCESS {        
-        foreach($wt in Get-WorkspaceTags) {            
+        foreach($wt in GetWorkspaceTagsConfig) {
             if ($debugMode.IsPresent) {write-host ('creating workspace ${0} to {1}' -f $wt.name, $wt.path)}
             New-Variable $wt.name -Value $wt.path -Scope 'global' -Force
         }
