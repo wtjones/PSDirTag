@@ -5,7 +5,7 @@ function UnregisterDirtags() {
     foreach($var in $script:tagVariables) {
         if ($debugMode) {write-host ('removing variable ${0}' -f $var.name)}
         if (Get-Variable $var.name -scope global -ErrorAction SilentlyContinue) {
-            Remove-Variable $var.name -Force
+            Remove-Variable $var.name -scope global -Force -ErrorAction SilentlyContinue
         }
     }
     $script:tagVariables = @()
