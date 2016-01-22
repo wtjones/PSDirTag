@@ -30,6 +30,7 @@ function global:prompt {
             Register-DirTags -debugMode
             Register-WorkspaceTags -debugMode
         } else {
+            UnregisterDirTags
             Register-DirTags
             Register-WorkspaceTags
         }
