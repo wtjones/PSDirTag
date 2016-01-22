@@ -2,6 +2,7 @@ param([parameter(Position=0, Mandatory = $false)][boolean]$debugMode = $false)
 
 $moduleRoot = Split-Path -Path $MyInvocation.MyCommand.Path
 $configFilePath = join-path (split-path $profile -parent) 'dirtags.json'
+$script:tagVariables = @()
 
 # Dot source functions
 "$moduleRoot\functions\*.ps1" | Resolve-Path | %{. $_.ProviderPath}
@@ -25,6 +26,7 @@ function global:prompt {
     # Eat errors to avoid breaking the prompt.
     try {
         if ($debugMode) {
+            UnregisterDirTags
             Register-DirTags -debugMode
             Register-WorkspaceTags -debugMode
         } else {
