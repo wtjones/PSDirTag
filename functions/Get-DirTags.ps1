@@ -1,11 +1,13 @@
-
+<#
+    Formatted output of currently set dirtags.
+#>
 function Get-DirTags {
     [CmdletBinding()]
     param ()
     PROCESS {
-        $result = GetDirTagsConfig
-        
-        foreach ($dt in GetWorkspaceDirTags) {
+        $result = @()
+
+        foreach ($dt in $script:tagVariables) {
             $result += (@{name = '$' + $dt.name; path = $dt.path})
         }
 
