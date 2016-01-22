@@ -20,11 +20,8 @@ function GetCurrentDirTags() {
 
         if ($foundPath -ne $null) {
             $tagPath = $foundPath
-        } else {        
-            $tagPath = $dt.path
-        }
-
-        $result += @{name = $dt.name; path = $dt.path}
+            $result += @{name = $dt.name; path = $dt.path}
+        }        
     }
     return $result
 }
