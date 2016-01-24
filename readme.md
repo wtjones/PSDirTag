@@ -145,21 +145,17 @@ As with any variable, you may locate them via tab completion.
 Usage
 -----
 
-Installation (normal)
+Installation
 ---------------------
 
-1) Clone or download to `$profile\Modules\PS-DirTag`
-2) Run the following:
+### Via [PowerShell Gallery](https://www.powershellgallery.com)
 
-		import-module ps-dirtag -force -verbose
+    Install-Module -Name PS-DirTag -Scope CurrentUser
+    Import-Module PS-DirTag
 
-Installation (debug)
----------------------
+### Via GitHub
 
-1) Clone or download to `$profile\Modules\PS-DirTag`
-2) Run the following:
-
-		import-module ps-dirtag -force -verbose -ArgumentList $true
+Clone or download to `$profile\Modules\PS-DirTag`
 
 
 Configuration
@@ -183,6 +179,16 @@ Place a json config file named `dirtags.json` in your `$profile` folder.
   ]
 }
 ```
+
+Load the module (normal)
+---------------
+
+    Import-Module PS-DirTag -force -verbose
+
+Load the module (debug)
+---------------------
+
+    import-module ps-dirtag -force -verbose -ArgumentList $true
 
 Uninstallation
 --------------
