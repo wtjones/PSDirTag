@@ -9,10 +9,10 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-# RootModule = ''
+RootModule = 'PS-DirTag.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.1'
+ModuleVersion = '1.0.3'
 
 # ID used to uniquely identify this module
 GUID = 'ab43d94a-2313-42bb-9711-6e4444739192'
