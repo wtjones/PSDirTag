@@ -4,7 +4,7 @@ PS-DirTag
 Overview
 --------
 
-DirTags are relative paths that appear as variables in the Powershell prompt when relevant.
+DirTags are relative paths that appear as variables in the Powershell prompt that update and point to relevant as you navigate.
 
 
 ### A basic example
@@ -189,8 +189,7 @@ Uninstallation
 
 Run the following
 
-        Unregister-DirtagsPrompt
-        Remove-Module PS-DirTag
+        Unregister-DirtagsPrompt; Remove-Module PS-DirTag
 
 I'm not sure yet how to clean up the prompt when `Remove-Module` is called. Closing and reopening the shell will do the same.
 
