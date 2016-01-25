@@ -145,25 +145,22 @@ As with any variable, you may locate them via tab completion.
 Usage
 -----
 
-Installation
----------------------
+### Step 1: Installation
 
-### Via [PowerShell Gallery](https://www.powershellgallery.com)
+#### Via [PowerShell Gallery](https://www.powershellgallery.com)
 
     Install-Module -Name PS-DirTag -Scope CurrentUser
-    Import-Module PS-DirTag
 
-### Via GitHub
+#### Via GitHub
 
 Clone or download to `$profile\Modules\PS-DirTag`
 
 
-Configuration
--------------
+### Step 2: Configuration
 
 Place a json config file named `dirtags.json` in your `$profile` folder.
 
-### Example `dirtags.json` file:
+#### Example `dirtags.json` file:
 
 ```
 {
@@ -180,15 +177,14 @@ Place a json config file named `dirtags.json` in your `$profile` folder.
 }
 ```
 
-Load the module (normal)
----------------
+### Step 3: Load the module
 
     Import-Module PS-DirTag -force -verbose
 
-Load the module (debug)
----------------------
+optional debug mode
 
     import-module ps-dirtag -force -verbose -ArgumentList $true
+
 
 Uninstallation
 --------------
