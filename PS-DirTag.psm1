@@ -1,11 +1,14 @@
 param([parameter(Position=0, Mandatory = $false)][boolean]$debugMode = $false)
 
-$moduleRoot = Split-Path -Path $MyInvocation.MyCommand.Path
-$configFilePath = join-path (split-path $profile -parent) 'dirtags.json'
+$script:moduleRoot = Split-Path -Path $MyInvocation.MyCommand.Path
+$script:configFileName = 'dirtags.json'
+$script:configFilePath = join-path (split-path $profile -parent) $script:configFileName
 $script:tagVariables = @()
 $script:debugMode = $debugMode
+$script:missingConfigMessageCount = 0
+
 # Dot source functions
-"$moduleRoot\functions\*.ps1" | Resolve-Path | %{. $_.ProviderPath}
+"$script:moduleRoot\functions\*.ps1" | Resolve-Path | %{. $_.ProviderPath}
 
 
 # Create a backup of the current prompt
@@ -26,10 +29,11 @@ function global:prompt {
     # Eat errors to avoid breaking the prompt.
     try {
         UnregisterDirTags
+        HandleHelpMessage
         RegisterDirTags
         RegisterWorkspaceTags
     } catch [Exception]{
-        if ($debugMode) { write-host $_.Message}
+        if ($script:debugMode) { write-host $_.Message}
     }
    
     $global:LASTEXITCODE = $realLASTEXITCODE    
