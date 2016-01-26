@@ -133,7 +133,7 @@ In addition, each dirTag is checked for existence in each workspace. These varia
 
 `$mainline_serverdocs` points to `C:\project1\docs\internal\server`
 
-`$mainline_servercode` points to `C:\features\project1\src\server`
+`$mainline_servercode` points to `C:\project1\src\server`
 
 `$devline_serverdocs`  points to `C:\features\project2\docs\internal\server`
 
