@@ -153,7 +153,7 @@ Usage
 
 #### Via GitHub
 
-Clone or download to `$profile\Modules\PS-DirTag`
+Clone or download to `$env:homepath\documents\WindowsPowerShell\Modules`
 
 
 ### Step 2: Configuration
