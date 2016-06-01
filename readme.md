@@ -179,11 +179,13 @@ Place a json config file named `dirtags.json` in your `$profile` folder.
 
 ### Step 3: Load the module
 
-    Import-Module PSDirTag -force -verbose
+    Import-Module PSDirTag
 
 optional debug mode
 
     import-module PSDirTag -force -verbose -ArgumentList $true
+
+Either of these lines may be placed in the PowerShell profile script, accessible via variable `$PROFILE`.
 
 
 Uninstallation
