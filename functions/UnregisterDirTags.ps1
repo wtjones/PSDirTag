@@ -1,7 +1,7 @@
 <#
     Clean up any variables that were created as dirtags
 #>
-function UnregisterDirtags() {
+function UnregisterDirTags() {
     foreach($var in $script:tagVariables) {
         if ($script:debugMode) {write-host ('removing variable ${0}' -f $var.name)}
         if (Get-Variable $var.name -scope global -ErrorAction SilentlyContinue) {
