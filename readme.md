@@ -1,4 +1,4 @@
-PS-DirTag
+PSDirTag
 =========
 
 Overview
@@ -40,7 +40,7 @@ _In dirtags.json:_
 
 ```
 
-PS-DirTag will walk up the current path to find the first folder with that name, setting it as variable $docs. It wil update upon prompt refresh (more on that later).
+PSDirTag will walk up the current path to find the first folder with that name, setting it as variable $docs. It wil update upon prompt refresh (more on that later).
 
 ```
 PS C:\project1\src\server> $docs
@@ -149,7 +149,7 @@ Usage
 
 #### Via [PowerShell Gallery](https://www.powershellgallery.com)
 
-    Install-Module -Name PS-DirTag -Scope CurrentUser
+    Install-Module -Name PSDirTag -Scope CurrentUser
 
 #### Via GitHub
 
@@ -179,11 +179,11 @@ Place a json config file named `dirtags.json` in your `$profile` folder.
 
 ### Step 3: Load the module
 
-    Import-Module PS-DirTag -force -verbose
+    Import-Module PSDirTag -force -verbose
 
 optional debug mode
 
-    import-module ps-dirtag -force -verbose -ArgumentList $true
+    import-module PSDirTag -force -verbose -ArgumentList $true
 
 
 Uninstallation
@@ -191,7 +191,7 @@ Uninstallation
 
 Run the following
 
-        Unregister-DirtagsPrompt; Remove-Module PS-DirTag
+        Unregister-DirtagsPrompt; Remove-Module PSDirTag
 
 I'm not sure yet how to clean up the prompt when `Remove-Module` is called. Closing and reopening the shell will do the same.
 

@@ -13,7 +13,7 @@ $script:missingConfigMessageCount = 0
 
 # Create a backup of the current prompt
 #
-if ((test-path function:\global:prompt) -and (get-content function:\prompt) -notlike '*PS-DirTags*') {
+if ((test-path function:\global:prompt) -and (get-content function:\prompt) -notlike '*PSDirTag*') {
     if ($debugMode) {write-host 'Saving current prompt $global:prompt_old...'}
     $global:prompt_old = get-content function:\prompt    
 }
@@ -23,7 +23,7 @@ if ((test-path function:\global:prompt) -and (get-content function:\prompt) -not
 # Override the powershell prompt to update the dirtags based on the pwd
 #
 function global:prompt {
-    # Identifier line for PS-Dirtags. Do not remove.
+    # Identifier line for PSDirTag. Do not remove.
     $realLASTEXITCODE = $LASTEXITCODE
 
     # Eat errors to avoid breaking the prompt.
