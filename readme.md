@@ -87,12 +87,13 @@ C:\features\project2\docs\internal\server
 ```
 
 
-#### The optional but handy workspaces
+#### The optional but complementary workspaceTags
 
 _WorkspaceTags_ provide:
 
 * A variable to an absoute path.
 * Derived variables for all dirtags that have a matching path under each workspace.
+* Think _project folder_ or maybe a _vcs repository_.
 
 
 _Consider this dirtags.json:_
@@ -147,18 +148,18 @@ Usage
 
 ### Step 1: Installation
 
-#### Via [PowerShell Gallery](https://www.powershellgallery.com)
+#### Via [PowerShell Gallery](https://www.powershellgallery.com) (Powershell v5 required)
 
     Install-Module -Name PSDirTag -Scope CurrentUser
 
-#### Via GitHub
+#### Via GitHub (PowerShell v3+ required)
 
-Clone or download to `$env:homepath\documents\WindowsPowerShell\Modules`
+Clone or download this repo to `$env:homepath\documents\WindowsPowerShell\Modules`
 
 
 ### Step 2: Configuration
 
-Place a json config file named `dirtags.json` in your `$profile` folder.
+Place a json config file named `dirtags.json` in your `$profile` folder. Add any dirTags or workspaceTags as desired.
 
 #### Example `dirtags.json` file:
 
@@ -194,8 +195,6 @@ Uninstallation
 Run the following
 
         Unregister-DirtagsPrompt; Remove-Module PSDirTag
-
-I'm not sure yet how to clean up the prompt when `Remove-Module` is called. Closing and reopening the shell will do the same.
 
 
 TODO
