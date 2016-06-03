@@ -200,4 +200,5 @@ Run the following
 TODO
 ----
 
+* Reloading an updated `dirtags.json` requires a re-import (`Import-Module PSDirTag`). It should instead check if the file has changed.
 * Support multiple possible paths per tag.
