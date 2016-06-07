@@ -4,7 +4,7 @@ PSDirTag
 Overview
 --------
 
-DirTags are relative paths that appear as variables in the Powershell prompt that update and point to relevant as you navigate.
+DirTags are relative paths that appear as variables in the Powershell prompt that update as you navigate.
 
 
 ### A basic example
