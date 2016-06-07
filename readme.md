@@ -148,7 +148,7 @@ Usage
 
 ### Step 1: Installation
 
-#### Via [PowerShell Gallery](https://www.powershellgallery.com) (Powershell v5 required)
+#### Via [PowerShell Gallery](https://www.powershellgallery.com/packages/PSDirTag) (Powershell v5 required)
 
     Install-Module -Name PSDirTag -Scope CurrentUser
 
