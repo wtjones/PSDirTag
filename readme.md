@@ -4,7 +4,7 @@ PSDirTag
 Overview
 --------
 
-DirTags are relative paths that appear as variables in the Powershell prompt that update as you navigate.
+DirTags are relative paths that appear as variables in the Powershell prompt that update as you navigate. It's geat saving keystrokes when navigating folder structures.
 
 
 ### A basic example
@@ -79,7 +79,7 @@ PS C:\project1\src\server> $serverdocs
 C:\project1\docs\internal\server
 ```
 
-Consider a scenario where it is common to work with multiple projects with the same folder structure. I may access the same dirtag from project2:
+Consider a scenario where it is common to work with multiple projects with the same folder structure. Assume there is another folder, `project2', with a similar folder structure to the example above. I may access the same dirtag from anywhere in project2:
 
 ```
 PS C:\features\project2\src\server> $serverdocs
@@ -92,7 +92,7 @@ C:\features\project2\docs\internal\server
 _WorkspaceTags_ provide:
 
 * A variable to an absoute path.
-* Derived variables for all dirtags that have a matching path under each workspace.
+* Derived variables for all dirtags that have a matching path under each workspace. Access another projects dirTags from anywhere.
 * Think _project folder_ or maybe a _vcs repository_.
 
 
