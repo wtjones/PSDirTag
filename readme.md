@@ -79,7 +79,7 @@ PS C:\project1\src\server> $serverdocs
 C:\project1\docs\internal\server
 ```
 
-Consider a scenario where it is common to work with multiple projects with the same folder structure. Assume there is another folder, `project2', with a similar folder structure to the example above. I may access the same dirtag from anywhere in project2:
+Consider a scenario where it is common to work with multiple projects with the same folder structure. Assume there is another folder, `project2`, with a similar folder structure to the example above. I may access the same dirtag from anywhere in project2:
 
 ```
 PS C:\features\project2\src\server> $serverdocs
@@ -180,11 +180,15 @@ Place a json config file named `dirtags.json` in your `$profile` folder. Add any
 
 ### Step 3: Load the module
 
-    Import-Module PSDirTag
+```
+Import-Module PSDirTag
+```
 
 optional debug mode
 
-    import-module PSDirTag -force -verbose -ArgumentList $true
+```
+import-module PSDirTag -force -verbose -ArgumentList $true
+```
 
 Either of these lines may be placed in the PowerShell profile script, accessible via variable `$PROFILE`.
 
@@ -194,8 +198,9 @@ Uninstallation
 
 Run the following
 
-        Unregister-DirtagsPrompt; Remove-Module PSDirTag
-
+```
+Unregister-DirtagsPrompt; Remove-Module PSDirTag
+```
 
 TODO
 ----
