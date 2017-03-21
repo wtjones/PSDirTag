@@ -12,7 +12,7 @@
 RootModule = 'PSDirTag.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.6'
+ModuleVersion = '1.0.7'
 
 # ID used to uniquely identify this module
 GUID = '20bce100-0539-4888-bfa6-784007df63da'
@@ -24,7 +24,7 @@ Author = 'William T Jones'
 CompanyName = 'Unknown'
 
 # Copyright statement for this module
-Copyright = '(c) 2016 William T Jones. All rights reserved.'
+Copyright = '(c) 2017 William T Jones. All rights reserved.'
 
 # Description of the functionality provided by this module 
 Description = 'DirTags are relative paths that appear as variables in the Powershell prompt that update and point to relevant as you navigate.'
@@ -92,7 +92,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = @('navigation', 'workspaces')
+        Tags = @('navigation', 'workspaces', 'bookmarks')
 
         # A URL to the license for this module.
         # LicenseUri = ''
