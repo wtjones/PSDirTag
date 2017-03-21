@@ -1,13 +1,19 @@
 
 function GetDirTagsConfig {
-    $tags = (get-content $script:configFilePath -Raw) | ConvertFrom-Json
-    return $tags.dirTags
-
+    $result = @()
+    if (test-path $script:configFilePath) {
+        $tags = (get-content $script:configFilePath -Raw) | ConvertFrom-Json
+        $result = $tags.dirTags
+    }
+    return $result
 }
 
 
 function GetWorkspaceTagsConfig {
-    $tags = (get-content $script:configFilePath -Raw) | ConvertFrom-Json
-    return $tags.workspaceTags
-
+    $result = @()
+    if (test-path $script:configFilePath) {
+        $tags = (get-content $script:configFilePath -Raw) | ConvertFrom-Json
+        $result = $tags.workspaceTags
+    }
+    return $result
 }

@@ -33,3 +33,7 @@ function Setup-TestData() {
     mkdir 'TestDrive:\project1'
     $config > 'TestDrive:\dirtags.json'
 }
+
+function Setup-NoTestData() {
+    mkdir 'TestDrive:\project1'   
+}

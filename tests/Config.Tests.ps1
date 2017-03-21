@@ -20,6 +20,19 @@ Describe "GetDirTagsConfig" {
     }
 }
 
+Describe "GetDirTagsConfig with no config" {
+    Setup-NoTestData
+    $result = GetDirTagsConfig
+    It "doesn't throw" {        
+        write-host $result
+        $true | Should Be $true
+    }
+
+    It "shouldn't return null" {
+        write-host $result
+        $result.length | Should Be 0
+    }
+}
 
 Describe "GetWorkspaceTagsConfig" {
     Setup-TestData
@@ -34,3 +47,18 @@ Describe "GetWorkspaceTagsConfig" {
         $result.length | Should Not Be 0
     }
 }
+
+Describe "GetWorkspaceTagsConfig with no config" {
+    Setup-NoTestData
+    $result = GetWorkspaceTagsConfig
+    It "doesn't throw" {        
+        write-host $result
+        $true | Should Be $true
+    }
+
+    It "shouldn't return null" {
+        write-host $result
+        $result.length | Should Be 0
+    }
+}
+
