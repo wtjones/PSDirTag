@@ -193,6 +193,15 @@ import-module PSDirTag -force -verbose -ArgumentList $true
 Either of these lines may be placed in the PowerShell profile script, accessible via variable `$PROFILE`.
 
 
+### Cmdlets
+
+See all tags in scope relative to the current directory.
+
+```
+Get-DirTags
+```
+
+
 Uninstallation
 --------------
 
