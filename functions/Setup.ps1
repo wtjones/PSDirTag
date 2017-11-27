@@ -1,7 +1,7 @@
 
 function Unregister-DirTagsPrompt {    
     [CmdletBinding()]
-    param ([switch]$debugMode)
+    param ()
     PROCESS {
         UnregisterDirTags
         if ($global:prompt_old -ne $null) {

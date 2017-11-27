@@ -12,14 +12,13 @@ function GetCurrentDirTags() {
         while ($foundPath -eq $null -and $curPath -ne '') {
             if (test-path (join-path $curPath $dt.path)) {
                 $foundPath = (join-path $curPath $dt.path)
-                if ($script:debugMode) {write-host ("found: $foundPath")}
+                Write-Verbose "found: $foundPath"
             } else {
                 $curPath = (split-path $curPath)
             }
         }
 
         if ($foundPath -ne $null) {
-            $tagPath = $foundPath
             $result += @{name = $dt.name; path = $foundPath}
         }        
     }

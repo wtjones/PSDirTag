@@ -184,7 +184,7 @@ Place a json config file named `dirtags.json` in your `$profile` folder. Add any
 Import-Module PSDirTag
 ```
 
-optional debug mode
+optional verbose mode
 
 ```
 import-module PSDirTag -force -verbose -ArgumentList $true

@@ -1,10 +1,13 @@
-param([parameter(Position=0, Mandatory = $false)][boolean]$debugMode = $false)
+param(
+    # If set, the hooked prompt will call the main handler will the -Verbose flag
+    [parameter(Position=0, Mandatory = $false)][boolean]
+    $verbose = $false
+)
 
 $script:moduleRoot = Split-Path -Path $MyInvocation.MyCommand.Path
 $script:configFileName = 'dirtags.json'
 $script:configFilePath = join-path (split-path $profile -parent) $script:configFileName
 $script:tagVariables = @()
-$script:debugMode = $debugMode
 $script:missingConfigMessageCount = 0
 
 # Dot source functions
@@ -13,8 +16,7 @@ $script:missingConfigMessageCount = 0
 
 # Create a backup of the current prompt
 #
-if ((test-path function:\global:prompt) -and (get-content function:\prompt) -notlike '*PSDirTag*') {
-    if ($debugMode) {write-host 'Saving current prompt $global:prompt_old...'}
+if ((test-path function:\global:prompt) -and (get-content function:\prompt) -notlike '*PSDirTag*') {    
     $global:prompt_old = get-content function:\prompt    
 }
 
@@ -28,12 +30,9 @@ function global:prompt {
 
     # Eat errors to avoid breaking the prompt.
     try {
-        UnregisterDirTags
-        HandleHelpMessage
-        RegisterDirTags
-        RegisterWorkspaceTags
+        OnPrompt -Verbose:($verbose)        
     } catch [Exception]{
-        if ($script:debugMode) { write-host $_.Message}
+        $host.ui.WriteErrorLine($_.Exception.Message)
     }
    
     $global:LASTEXITCODE = $realLASTEXITCODE    
