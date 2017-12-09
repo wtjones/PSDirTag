@@ -98,7 +98,7 @@ PrivateData = @{
         Tags = 'navigation','workspaces','bookmarks'
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://raw.githubusercontent.com/wtjones/PSDirTag/master/LICENSE.md'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/wtjones/PSDirTag'
