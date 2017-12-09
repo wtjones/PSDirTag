@@ -3,6 +3,8 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
+
+## [1.0.8] - 2017-12-9
 ### Changed
 - Resolve [#6](https://github.com/wtjones/PSDirTag/issues/6) use Write-Verbose in favor of tracking a debugMode variable
 ### Fixed
